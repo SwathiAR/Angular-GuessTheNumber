@@ -1,0 +1,42 @@
+<html ng-app="guessWord">
+<head>
+    <meta charset="utf-8">
+    <title>Guess the number</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="guessWordController" class="container">
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Welcome to this game, Guess number! </h2>
+        <h3 class="well lead">Guess the number between 1 to 1000</h3>
+
+
+        <b>Your guess:</b> <input type="number" ng-model="guessedNum">
+
+        <span>
+           <button ng-click="checkGuess(guessedNum)" class="bg-info" class="btn btn-primary btn-sm">Verify</button>
+           <button ng-click="initializeGame()" class="btn btn-warning btn-sm">Restart</button>
+        </span>
+
+        <div>
+            <br>
+            <p class="jumbotron" style="background-color: burlywood" ng-show="deviation<0">Your guess is higher</p>
+            <p class="jumbotron" style="background-color: burlywood" ng-show="deviation>0">Your guess is lower</p>
+            <p class="jumbotron" style="background-color: mediumseagreen" ng-show="deviation===0">Yes ! That's it.</p>
+
+        </div>
+
+
+        <div class="text-info">
+            Number of guesses: <span class="badge">{{noOfTries}}</span>
+        </div>
+
+
+    </div>
+</div>
+</body>
+
+
+</html>
